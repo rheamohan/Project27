@@ -23,16 +23,19 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
-	bob1 = new Bob(230,500,40,40);
-	bob2 = new Bob(312,500,40,40);
-	bob3 = new Bob(394,500,40,40);
-	bob4 = new Bob(476,500,40,40);
-	bob5 = new Bob(558,500,40,40);
+	bob1 = new Bob(240,500,40);
+	bob2 = new Bob(320,500,40);
+	bob3 = new Bob(400,500,40);
+	bob4 = new Bob(480,500,40);
+	bob5 = new Bob(560,500,40);
 
 	roof = new Roof(400,100,610,40);
 
-	rope1 = new Rope(bob1.body,roof.body,-80*2,0)
-	//line = (bob1.x,bob1.y,roof.x,roof.y);
+	rope1 = new Rope(bob1.body,roof.body,+140,0);
+	rope2 = new Rope(bob2.body,roof.body,+220,0);
+	rope3 = new Rope(bob3.body,roof.body,+300,0);
+	rope4 = new Rope(bob4.body,roof.body,+380,0);
+	rope5 = new Rope(bob5.body,roof.body,+455,0);
 
 	Engine.run(engine);
   
@@ -41,7 +44,7 @@ function setup() {
 
 function draw() {
   
-  background(0);
+  background(233,162,184);
   Engine.update(engine);
 
   rectMode(CENTER);
@@ -53,9 +56,19 @@ function draw() {
 
   roof.display();
 
+  rope1.display();
+  rope2.display();
+  rope3.display();
+  rope4.display();
+  rope5.display();
+  
   drawSprites();
  
 }
 
-
+function keyPressed(){
+	if(keyCode=== UP_ARROW){
+Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-20,y:-83});
+	}
+}
 

@@ -12,6 +12,7 @@ class Roof {
     display(){
         var pos = this.body.position
         push();
+        strokeWeight (4);
         fill("blue");
         stroke ("blue");
         rectMode(CENTER);
